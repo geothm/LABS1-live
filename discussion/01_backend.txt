@@ -1,0 +1,11 @@
+Ce probleme rezolva backendul:
+- state management: persistenta - salvarea datelor intr-o BD, fisier   -JPA/Hibernate
+- prelucrarea datelor - nu fcem pe frontend pt ca pot exista mai multi clienti   -POJO/Spring
+- securitate - useri/drepturi. dar si restrictionarea clientilor care pot accesa backendul - CORS -- Spring (Spring Security)
+- integrare cu alte sisteme - prin protocoale de comunicare
+- in dezvoltarea aplicatiilor WEB - HTTP - GET, POST, PUT, PATCH, DELETE
+- aplicatia backedn trebuie sa implementeze un standard peste HTTP - REST
+- exception handliing
+--------------- packeged by maven
+
+https://start.spring.io/
