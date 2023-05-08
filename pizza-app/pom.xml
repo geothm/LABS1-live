@@ -22,6 +22,7 @@
 		<module>pizza-service</module>
 		<module>pizza-web</module>
 		<module>pizza-web-lib</module>
+		<module>pizza-domain</module>
 	</modules>
 
 	<dependencyManagement>
@@ -29,6 +30,16 @@
 			<dependency>
 				<groupId>ro.irian</groupId>
 				<artifactId>pizza-web-lib</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>ro.irian</groupId>
+				<artifactId>pizza-service</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>ro.irian</groupId>
+				<artifactId>pizza-domain</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 		</dependencies>

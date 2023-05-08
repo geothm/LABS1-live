@@ -1,15 +1,37 @@
 package ro.irian.labs.pizzaapp;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ro.irian.pizzaapp.IPizzaService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("pizzas")
 public class PizzaController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(PizzaController.class);
+
+    private final List<IPizzaService> pizzaServices;
+
+    public PizzaController(List<IPizzaService> pizzaServices) {
+        this.pizzaServices = pizzaServices;
+    }
+
+
     @GetMapping(value = "/all", produces = "application/json")
     public String getPizzas() {
-        return "Pizza Menu:";
+        LOG.debug("Getting all pizzas...");
+        return "Pizza Menu:" + getAllPizzas();
+    }
+
+    private List<String> getAllPizzas() {
+        List<String> allPizzas = new ArrayList<>();
+        pizzaServices.forEach(iPizzaService -> allPizzas.addAll(iPizzaService.getAllPizzas()));
+        return allPizzas;
     }
 }
