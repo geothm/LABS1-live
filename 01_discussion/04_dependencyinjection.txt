@@ -1,0 +1,20 @@
+- But does it work? - pizzas not showing up
+- Spring beans - classes managed by Spring, defined by annotations
+- What are annotations: syntactic metadata that can be added to Java source code.
+	- Spring framework "listens" for them and adds specific code - https://happycoding.io/tutorials/java-server/rest-api
+	- @RestController, @Service, @Repository, @Component
+	- @Scope - how long are the beans kept "alive"
+		- singleton - "forever" - one bean/application
+		- prototype - one bean/call
+		- request -
+		- session
+	- @ComponentScan - "load" all the beans from the specified package
+
+- But still no pizzas
+	- Creating pizzas is business logic - belongs in service layer
+	- service layers shouldn't know about web infra - change spring-boot-starter-web dep with spring-boot-starter dep
+	- Create Pizza service - inject in Pizza Controller
+		- Injection points defined by:
+			- @Autowired (field, setter, constructor param)
+			- required=true - makes the dependency optional
+			- If on a List => accepts 0..n beans of the defined type

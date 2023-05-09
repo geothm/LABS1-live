@@ -1,0 +1,6 @@
+Logging
+
+- Spring boot comes with logback implementation of slf4j
+- config file : logback-spring.xml in pizz-web/src/mai/resources
+- get logger instance in class:
+    - private static final Logger LOG = LoggerFactory.getLogger(PizzaController.class); //PizzaController = your class

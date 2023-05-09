@@ -1,0 +1,12 @@
+- Daca vrem sa afisam doar un string hardcoded - we're all set
+- Altfel - Layered architecture
+	- Controller - MVC
+	- Service layer - business logic
+	- DAO layer - Data access layer - Repositories, database access layer
+	- How do we separate? - Modules = Maven
+-Modules for Service, Web and Web-lib
+-Master pom packaging:pom
+-Modules component
+-Dependency management
+-build plugin only where main class is
+-mvn clean install - Build success

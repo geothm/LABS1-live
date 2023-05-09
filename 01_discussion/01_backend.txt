@@ -8,4 +8,3 @@ Ce probleme rezolva backendul:
 - exception handliing
 --------------- packeged by maven
 
-https://start.spring.io/

@@ -1,0 +1,14 @@
+Spring Boot? -- https://start.spring.io/
+
+- Starters
+    - starter-actuator
+        - actuator/health -- https://www.baeldung.com/spring-boot-actuators
+        - Autoconfigure -- management.endpoints.web.exposure.include=*
+    - starter-web
+        - what else do we have in the console log?
+            - Tomcat : what is Tomcat:  https://www.jrebel.com/blog/what-is-apache-tomcat
+                - Apache Tomcat is a popular open source web server and Servlet container for Java code.
+            - What is Servlet?
+                - They are basically Java programs that run inside the boundaries of a container. On the whole, they are responsible for accepting a request, processing it, and sending a response back.
+            - Aplicatia noastra e "extinsa" cu feature-urile unui server: asculta pe portul 8080 dupa requesturi HTTP - verbe?
+        - Cum prindem requesturile? - @RestController
