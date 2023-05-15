@@ -1,9 +1,6 @@
 package ro.irian.pizzaapp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,7 +11,7 @@ public class Pizza {
     private long id;
     private String name;
     private int diameter;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Ingredient> ingredients;
 
     public Pizza() {
@@ -24,6 +21,14 @@ public class Pizza {
         this.name = name;
         this.diameter = diameter;
         this.ingredients = ingredients;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setName(String name) {

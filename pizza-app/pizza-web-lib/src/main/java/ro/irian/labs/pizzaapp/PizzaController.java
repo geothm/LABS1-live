@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ro.irian.pizzaapp.IPizzaService;
+import ro.irian.pizzaapp.ItalianPizzaService;
 import ro.irian.pizzaapp.domain.Pizza;
 
 import java.util.ArrayList;
@@ -18,14 +19,17 @@ public class PizzaController {
     private static final Logger LOG = LoggerFactory.getLogger(PizzaController.class);
 
     private final List<IPizzaService> pizzaServices;
+    private final ItalianPizzaService italianPizzaService;
 
-    public PizzaController(List<IPizzaService> pizzaServices) {
+    public PizzaController(List<IPizzaService> pizzaServices, ItalianPizzaService italianPizzaService) {
         this.pizzaServices = pizzaServices;
+        this.italianPizzaService = italianPizzaService;
     }
 
 
     @GetMapping(value = "/all", produces = "application/json")
     public List<Pizza> getPizzas() {
+        italianPizzaService.savePizzas();
         LOG.debug("Getting all pizzas...");
         return  getAllPizzas();
     }
