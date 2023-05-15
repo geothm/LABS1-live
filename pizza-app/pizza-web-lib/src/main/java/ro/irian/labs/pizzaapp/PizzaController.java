@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ro.irian.pizzaapp.IPizzaService;
+import ro.irian.pizzaapp.domain.Pizza;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +25,13 @@ public class PizzaController {
 
 
     @GetMapping(value = "/all", produces = "application/json")
-    public String getPizzas() {
+    public List<Pizza> getPizzas() {
         LOG.debug("Getting all pizzas...");
-        return "Pizza Menu:" + getAllPizzas();
+        return  getAllPizzas();
     }
 
-    private List<String> getAllPizzas() {
-        List<String> allPizzas = new ArrayList<>();
+    private List<Pizza> getAllPizzas() {
+        List<Pizza> allPizzas = new ArrayList<>();
         pizzaServices.forEach(iPizzaService -> allPizzas.addAll(iPizzaService.getAllPizzas()));
         return allPizzas;
     }
