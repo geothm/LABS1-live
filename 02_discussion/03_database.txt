@@ -1,0 +1,5 @@
+App doesn't work anymore?
+	- no database config   -- https://www.baeldung.com/spring-boot-h2-database
+	- add H2 dependency to web module
+	- add H2 configs to application.properties -- application runs as before
+	- spring.jpa.hibernate.ddl-auto= create-drop

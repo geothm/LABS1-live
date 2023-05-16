@@ -1,0 +1,5 @@
+Types of database relationships between tables:
+	- One to One : Wife has one Husband, Husband has one Wife
+	- One to Many : Firm has many Bank Accounts
+	- Many to One ? : Many Bank Accounts belong to one Firm
+	- Many to Many : A student has many Teachers and a Teacher has many Students

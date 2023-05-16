@@ -1,0 +1,15 @@
+Before we can load we have to save
+		- write Repository class
+		- @PersistanceContext - EntityManager
+		- @EntityScan
+
+		- @Transactional
+			- Atomic (if the change is committed, it happens in one fell swoop; you can never see "half a change")
+			- Consistent (the change can only happen if the new state of the system will be valid; any attempt to commit an invalid change will fail, leaving the system in its previous valid state)
+			- Isolated (no-one else sees any part of the transaction until it's committed)
+			- Durable (once the change has happened - if the system says the transaction has been committed, the client doesn't need to worry about "flushing" the system to make the change "stick")
+		- Collections:
+				- @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+				- generates a join table
+				- @ManyToOne where it's useful - @OneToMany(mappedBy = "referenceAttribute")
+				- @JoinTable where necessary

@@ -1,0 +1,14 @@
+Replace Strings with Java classes for Pizza and Ingredient
+
+But how do we get the pizza from our databse in our Java classes?
+	- JDBC approach
+		- Fast but ugly, error prone
+		- not scalable
+	- ORM - object-relational mapping
+		-add appropriate maven dependency
+		-@Entity
+		- no-arg constructor, setters and getters
+		- @Table - table name
+		- @Column -     @Column(name = "name", length = 100, nullable = false)
+		- primary key? - @Id
+		- List - @OneToMany
