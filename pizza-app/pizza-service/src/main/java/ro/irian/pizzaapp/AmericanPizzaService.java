@@ -5,14 +5,16 @@ import ro.irian.pizzaapp.domain.Ingredient;
 import ro.irian.pizzaapp.domain.Pizza;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class AmericanPizzaService implements IPizzaService{
 
     @Override
-    public List<Pizza> getAllPizzas(){
-        List<Pizza> pizzas = new ArrayList<>();
+    public Set<Pizza> getAllPizzas(){
+        Set<Pizza> pizzas = new HashSet<>();
 
         pizzas.add(getPizzaPepperoni());
 

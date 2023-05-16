@@ -3,8 +3,11 @@ package ro.irian.pizzaapp.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
+@Table(name = "ingredient_table")
 public class Ingredient {
 
     @Id
@@ -43,5 +46,18 @@ public class Ingredient {
 
     public double getQuantityGrams() {
         return quantityGrams;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingredient that = (Ingredient) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

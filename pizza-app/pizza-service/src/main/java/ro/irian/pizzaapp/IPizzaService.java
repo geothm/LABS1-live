@@ -2,9 +2,9 @@ package ro.irian.pizzaapp;
 
 import ro.irian.pizzaapp.domain.Pizza;
 
-import java.util.List;
+import java.util.Set;
 
 public interface IPizzaService {
 
-    List<Pizza> getAllPizzas();
+    Set<Pizza> getAllPizzas();
 }

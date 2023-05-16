@@ -19,17 +19,13 @@ public class PizzaController {
     private static final Logger LOG = LoggerFactory.getLogger(PizzaController.class);
 
     private final List<IPizzaService> pizzaServices;
-    private final ItalianPizzaService italianPizzaService;
 
-    public PizzaController(List<IPizzaService> pizzaServices, ItalianPizzaService italianPizzaService) {
+    public PizzaController(List<IPizzaService> pizzaServices) {
         this.pizzaServices = pizzaServices;
-        this.italianPizzaService = italianPizzaService;
     }
-
 
     @GetMapping(value = "/all", produces = "application/json")
     public List<Pizza> getPizzas() {
-        italianPizzaService.savePizzas();
         LOG.debug("Getting all pizzas...");
         return  getAllPizzas();
     }

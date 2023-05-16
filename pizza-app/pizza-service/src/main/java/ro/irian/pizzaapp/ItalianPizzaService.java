@@ -7,7 +7,9 @@ import ro.irian.pizzaapp.domain.Pizza;
 import ro.irian.pizzaapp.domain.PizzaRepository;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ItalianPizzaService implements IPizzaService{
@@ -52,8 +54,8 @@ public class ItalianPizzaService implements IPizzaService{
     }
 
     @Override
-    public List<Pizza> getAllPizzas(){
-        List<Pizza> pizzas = new ArrayList<>();
+    public Set<Pizza> getAllPizzas(){
+        Set<Pizza> pizzas = new HashSet<>();
 
         pizzas.add(pizzaRepository.getById(salamiPizzaId));
         pizzas.add(pizzaRepository.getById(prosciutoPizzaId));
