@@ -3,7 +3,7 @@ package ro.irian.pizzaapp.domain;
 import javax.persistence.*;
 
 @Entity
-public class PizzaCustomer {
+public class Customer {
     @Id
     @GeneratedValue
     private long id;

@@ -2,23 +2,23 @@ package ro.irian.labs.pizzaapp;
 
 import org.springframework.stereotype.Service;
 import ro.irian.pizzaapp.ItalianPizzaService;
-import ro.irian.pizzaapp.PizzaOrderService;
+import ro.irian.pizzaapp.OrderService;
 
 import javax.annotation.PostConstruct;
 
 @Service
 public class TestDataComponent {
     private final ItalianPizzaService italianPizzaService;
-    private final PizzaOrderService pizzaOrderService;
+    private final OrderService orderService;
 
-    public TestDataComponent(ItalianPizzaService italianPizzaService, PizzaOrderService pizzaOrderService) {
+    public TestDataComponent(ItalianPizzaService italianPizzaService, OrderService orderService) {
         this.italianPizzaService = italianPizzaService;
-        this.pizzaOrderService = pizzaOrderService;
+        this.orderService = orderService;
     }
 
     @PostConstruct
     public void init(){
         italianPizzaService.savePizzas();
-        pizzaOrderService.saveFirstOrder();
+        orderService.saveFirstOrder();
     }
 }

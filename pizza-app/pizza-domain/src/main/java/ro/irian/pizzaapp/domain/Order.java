@@ -2,24 +2,25 @@ package ro.irian.pizzaapp.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-public class PizzaOrder {
+@Table(name = "pizza_order")
+public class Order {
 
     @Id
     @GeneratedValue
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private PizzaCustomer pizzaCustomer;
+    private Customer customer;
 
     private LocalDateTime placedAt;
 
     private double price;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "order_pizza_join_table")
     private Set<Pizza> pizzaList;
 
     public long getId() {
@@ -54,11 +55,11 @@ public class PizzaOrder {
         this.pizzaList = pizzaList;
     }
 
-    public PizzaCustomer getCustomer() {
-        return pizzaCustomer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomer(PizzaCustomer pizzaCustomer) {
-        this.pizzaCustomer = pizzaCustomer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

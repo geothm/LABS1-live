@@ -6,16 +6,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class PizzaCustomerRepository {
+public class OrderRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-    public void save (PizzaCustomer pizzaCustomer) {
-        em.persist(pizzaCustomer);
+    public void save (Order order) {
+        em.persist(order);
     }
 
-    public PizzaCustomer getById(long id){
-        return em.find(PizzaCustomer.class, id);
+    public Order getById(long id){
+        return em.find(Order.class, id);
     }
 }
