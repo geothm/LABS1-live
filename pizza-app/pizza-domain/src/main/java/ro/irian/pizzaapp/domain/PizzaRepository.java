@@ -62,9 +62,9 @@ public class PizzaRepository {
     public List<PizzaVO> getAllPizzaVOs(){
         return em.createQuery("select new ro.irian.pizzaapp.domain.PizzaVO(" +
                 "pizza.id, " +
-                "pizza.name," +
-                "count(ingredient)) from Pizza pizza " +
-                "join pizza.ingredients ingredient group by pizza ")
+                "pizza.name)" +
+                " from Pizza pizza " +
+                " ")
                 .getResultList();
     }
 }

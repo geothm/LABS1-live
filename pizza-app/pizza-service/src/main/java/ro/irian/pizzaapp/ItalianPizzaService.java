@@ -75,4 +75,13 @@ public class ItalianPizzaService implements IPizzaService{
 
         return pizzas;
     }
+
+    @Transactional
+    public void savePizzaDTO(PizzaDTO pizzaDTO) {
+        Pizza pizza = new Pizza();
+        pizza.setName(pizzaDTO.getName());
+        pizza.setDiameter(pizzaDTO.getDiameter());
+
+        pizzaRepository.save(pizza);
+    }
 }

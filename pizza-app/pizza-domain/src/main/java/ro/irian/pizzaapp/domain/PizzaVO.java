@@ -4,12 +4,11 @@ public class PizzaVO {
 
     private final long id;
     private final String name;
-    private final Long ingredientsNo;
+    private  Long ingredientsNo;
 
-    public PizzaVO(long id, String name, Long ingredientsNo) {
+    public PizzaVO(long id, String name) {
         this.id = id;
         this.name = name;
-        this.ingredientsNo = ingredientsNo;
     }
 
     public long getId() {
