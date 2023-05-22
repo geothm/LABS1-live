@@ -3,8 +3,7 @@ package ro.irian.pizzaapp;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.irian.pizzaapp.domain.Order;
-import ro.irian.pizzaapp.domain.OrderRepository;
+import ro.irian.pizzaapp.domain.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class OrderService {
         order.setPizzaList(italianPizzaService.getAllPizzas());
         order.setCustomer(customerService.saveFirstCustomer());
         order.setPlacedAt(LocalDateTime.now());
-        order.setPrice(100);
+        order.setPrice(new CurrencyValue(CurrencyCode.EUR, 100));
 
         orderRepository.save(order);
 
@@ -45,6 +44,10 @@ public class OrderService {
         orders.add(orderRepository.getById(firstOrderId));
 
         return orders;
+    }
+
+    public List<OrderVO> getAllOrderVOs(){
+        return orderRepository.getAllOrderVOs();
     }
     
 }

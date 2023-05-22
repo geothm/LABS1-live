@@ -17,8 +17,8 @@ public class Order {
 
     private LocalDateTime placedAt;
 
-    private double price;
-
+    @Embedded
+    private CurrencyValue price;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "order_pizza_join_table")
     private Set<Pizza> pizzaList;
@@ -39,11 +39,11 @@ public class Order {
         this.placedAt = placedAt;
     }
 
-    public double getPrice() {
+    public CurrencyValue getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(CurrencyValue price) {
         this.price = price;
     }
 

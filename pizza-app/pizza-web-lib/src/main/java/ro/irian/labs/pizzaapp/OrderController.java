@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ro.irian.pizzaapp.OrderService;
 import ro.irian.pizzaapp.domain.Order;
+import ro.irian.pizzaapp.domain.OrderVO;
 
 import java.util.List;
 
@@ -26,6 +27,11 @@ public class OrderController {
     public List<Order> getPizzaOrders() {
         LOG.debug("Getting all orders...");
         return  orderService.getAllPizzaOrders();
+    }
+
+    @GetMapping(value = "/vo/all", produces = "application/json")
+    public List<OrderVO> getOrderVos() {
+        return  orderService.getAllOrderVOs();
     }
 
 }

@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.irian.pizzaapp.domain.Ingredient;
 import ro.irian.pizzaapp.domain.Pizza;
 import ro.irian.pizzaapp.domain.PizzaRepository;
+import ro.irian.pizzaapp.domain.PizzaVO;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -27,6 +28,18 @@ public class ItalianPizzaService implements IPizzaService{
     public void savePizzas(){
         saveSalamiPizza();
         saveProsciuttoPizza();
+    }
+
+    public Pizza getPizzaByName(String name) {
+        return pizzaRepository.getByName(name);
+    }
+
+    public List<Pizza> getPizzasByIngredientName(String ingredientName) {
+        return pizzaRepository.getByIngredientName(ingredientName);
+    }
+
+    public List<PizzaVO> getAllPizzaVOs(){
+        return pizzaRepository.getAllPizzaVOs();
     }
 
     private void saveProsciuttoPizza() {
@@ -57,8 +70,8 @@ public class ItalianPizzaService implements IPizzaService{
     public Set<Pizza> getAllPizzas(){
         Set<Pizza> pizzas = new HashSet<>();
 
-        pizzas.add(pizzaRepository.getById(salamiPizzaId));
-        pizzas.add(pizzaRepository.getById(prosciutoPizzaId));
+        pizzas.add(pizzaRepository.getByIdQuery(salamiPizzaId));
+        pizzas.add(pizzaRepository.getByIdQuery(prosciutoPizzaId));
 
         return pizzas;
     }

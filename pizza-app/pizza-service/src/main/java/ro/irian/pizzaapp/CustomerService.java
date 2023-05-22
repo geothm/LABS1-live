@@ -5,6 +5,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.irian.pizzaapp.domain.CustomerType;
 import ro.irian.pizzaapp.domain.Customer;
 import ro.irian.pizzaapp.domain.CustomerRepository;
+import ro.irian.pizzaapp.domain.CustomerVO;
+
+import java.util.List;
 
 @Service
 public class CustomerService {
@@ -22,6 +25,10 @@ public class CustomerService {
         customer.setCustomerType(CustomerType.newCustomer);
         customerRepository.save(customer);
         return customer;
+    }
+
+    public List<CustomerVO> getAllCustomerVOs(){
+        return customerRepository.getAllCustomerVos();
     }
     
 }
